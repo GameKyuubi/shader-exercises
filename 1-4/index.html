@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="https://threejs.org/build/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/geometries/TeapotBufferGeometry.js"></script>
     <style>
       body {
         margin: 0px;
@@ -29,7 +30,7 @@
       function init() {
         scene = new THREE.Scene();
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 300;
+        camera.position.z = 700;
 
         uniforms = {
           u_time: { type: "f", value: 1.0 },
@@ -41,7 +42,7 @@
           fragmentShader: document.getElementById( 'boxFragmentShader' ).textContent
         });
 
-        geometry = new THREE.BoxGeometry( 200, 200, 200 );
+        geometry = new THREE.TeapotBufferGeometry( 200, 200, 200 );
         material = boxFragmentShader;
         mesh = new THREE.Mesh( geometry, material );
 
@@ -54,11 +55,11 @@
       }
 
       function animate() {
-        uniforms.u_time.value += 0.1;
+        uniforms.u_time.value += 0.1 / 2;
         requestAnimationFrame( animate );
 
-        mesh.rotation.x += 0.01;
-        mesh.rotation.y += 0.02;
+        mesh.rotation.x += 0.01 / 2.0;
+        mesh.rotation.y += 0.02 / 2.0;
 
         renderer.render( scene, camera );
       }
