@@ -30,8 +30,6 @@
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 300;
 
-        console.log(window.innerWidth);
-
         uniforms = {
           u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         }
